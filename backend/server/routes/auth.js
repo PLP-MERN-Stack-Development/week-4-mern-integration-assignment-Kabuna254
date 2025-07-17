@@ -2,6 +2,8 @@ const express = require('express');
 const { body, validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User'); // Ensure you have a User model defined
+const { deleteUser } = require('../controllers/authcontroller'); // Import the deleteUser controller
+const protect = require('../middleware/authMiddleware'); // Ensure you have an auth middleware for protecting routes
 
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || 'kabuna254'; // Add to your .env
@@ -72,5 +74,7 @@ router.post(
     }
   }
 );
+// Delete User Account
+router.delete('/delete', protect, deleteUser);
 
 module.exports = router;

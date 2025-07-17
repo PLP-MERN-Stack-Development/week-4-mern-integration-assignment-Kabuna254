@@ -1,79 +1,140 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19871782&assignment_repo_type=AssignmentRepo)
-# MERN Stack Integration Assignment
+# BlogPosts Application
 
-This assignment focuses on building a full-stack MERN (MongoDB, Express.js, React.js, Node.js) application that demonstrates seamless integration between front-end and back-end components.
+A full-stack blog application built with the MERN stack (MongoDB, Express.js, React.js, Node.js) using Vite as the React project bundler. It supports post management, user authentication, categories, and more.
 
-## Assignment Overview
+## Features
 
-You will build a blog application with the following features:
-1. RESTful API with Express.js and MongoDB
-2. React front-end with component architecture
-3. Full CRUD functionality for blog posts
-4. User authentication and authorization
-5. Advanced features like image uploads and comments
+* **Backend:**
 
-## Project Structure
+  * Express.js server
+  * MongoDB database
+  * RESTful API endpoints
+  * JWT authentication
+  * Controllers, routes, middleware architecture
+  * File uploads for images
+  * Error handling middleware
+
+* **Frontend:**
+
+  * React.js (created using Vite)
+  * State management for posts and categories
+  * Forms with validation (for creating/editing posts)
+  * Optimistic UI updates
+  * Loading and error state handling
+
+## Technologies Used
+
+* MongoDB
+* Express.js
+* React.js (Vite)
+* Node.js
+* Axios for API requests
+* Tailwind CSS for styling
+* JWT for authentication
+
+## Setup Instructions
+
+### Backend Setup
+
+1. Navigate to the backend directory:
+
+```bash
+cd backend
+```
+
+2. Install dependencies:
+
+```bash
+pnpm install
+```
+
+3. Configure environment variables in a `.env` file:
 
 ```
-mern-blog/
-├── client/                 # React front-end
-│   ├── public/             # Static files
-│   ├── src/                # React source code
-│   │   ├── components/     # Reusable components
-│   │   ├── pages/          # Page components
-│   │   ├── hooks/          # Custom React hooks
-│   │   ├── services/       # API services
-│   │   ├── context/        # React context providers
-│   │   └── App.jsx         # Main application component
-│   └── package.json        # Client dependencies
-├── server/                 # Express.js back-end
-│   ├── config/             # Configuration files
-│   ├── controllers/        # Route controllers
-│   ├── models/             # Mongoose models
-│   ├── routes/             # API routes
-│   ├── middleware/         # Custom middleware
-│   ├── utils/              # Utility functions
-│   ├── server.js           # Main server file
-│   └── package.json        # Server dependencies
-└── README.md               # Project documentation
+MONGODB_URI=your_mongodb_connection_string
+PORT=5000
+NODE_ENV=development
 ```
 
-## Getting Started
+4. Run the backend server:
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week4-Assignment.md` file
-4. Complete the tasks outlined in the assignment
+```bash
+pnpm run dev
+```
 
-## Files Included
+### Frontend Setup (React with Vite)
 
-- `Week4-Assignment.md`: Detailed assignment instructions
-- Starter code for both client and server:
-  - Basic project structure
-  - Configuration files
-  - Sample models and components
+1. Navigate to the frontend directory:
 
-## Requirements
+```bash
+cd frontend/client
+```
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- npm or yarn
-- Git
+2. Install dependencies:
 
-## Submission
+```bash
+pnpm install
+```
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+3. Install Tailwind CSS (if not installed):
 
-1. Complete both the client and server portions of the application
-2. Implement all required API endpoints
-3. Create the necessary React components and hooks
-4. Document your API and setup process in the README.md
-5. Include screenshots of your working application
+```bash
+pnpm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
 
-## Resources
+4. Run the frontend development server:
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [Express.js Documentation](https://expressjs.com/)
-- [React Documentation](https://react.dev/)
-- [Node.js Documentation](https://nodejs.org/en/docs/)
-- [Mongoose Documentation](https://mongoosejs.com/docs/) 
+```bash
+pnpm run dev
+```
+
+## Folder Structure
+
+* **/backend**
+
+  * `/routes` (API route definitions)
+  * `/controllers` (business logic)
+  * `/middleware` (auth, error handling, logger)
+  * `/models` (Mongoose models)
+  * `server.js` (main backend server file)
+
+* **/frontend/client**
+
+  * `/src/components` (UI components like Navbar, Footer, Layout)
+  * `/src/api` (API service files using Axios)
+  * `/src/pages` (React pages like Home, Create Post, Login)
+  * `/src/App.jsx` (application entry point)
+
+## API Endpoints Overview
+
+* **Posts:**
+
+  * `GET /api/posts`
+  * `GET /api/posts/:id`
+  * `POST /api/posts`
+  * `PUT /api/posts/:id`
+  * `DELETE /api/posts/:id`
+
+* **Categories:**
+
+  * `GET /api/categories`
+  * `POST /api/categories`
+
+* **Auth:**
+
+  * `POST /api/auth/register`
+  * `POST /api/auth/login`
+  * `DELETE /api/auth/delete`
+
+## Screenshots
+(frontend\client\public\Screenshots)
+
+## Credits
+
+* Built using the [Vite](https://vitejs.dev/) React framework.
+* UI powered by [Tailwind CSS](https://tailwindcss.com/) and [ShadCN UI](https://ui.shadcn.com/).
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).

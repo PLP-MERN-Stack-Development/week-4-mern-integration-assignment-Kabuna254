@@ -19,9 +19,7 @@ api.interceptors.request.use(
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
 // Add response interceptor for error handling
@@ -126,6 +124,16 @@ export const authService = {
     localStorage.removeItem('user');
   },
 
+  // Delete user account
+  deleteAccount: async () => {
+    const response = await api.delete('/auth/delete');
+    if (response.data.success) {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+    }
+    return response.data;
+  },
+
   // Get current user
   getCurrentUser: () => {
     const user = localStorage.getItem('user');
@@ -133,4 +141,4 @@ export const authService = {
   },
 };
 
-export default api; 
+export default api;
