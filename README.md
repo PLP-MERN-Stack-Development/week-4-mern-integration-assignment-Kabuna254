@@ -80,7 +80,6 @@ pnpm install
 
 ```bash
 pnpm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
 ```
 
 4. Run the frontend development server:
